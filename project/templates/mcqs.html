@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MCQS Test
+{% endblock %}
+
+{% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="poppins.css">
+<link rel="stylesheet" href="static/style2.css">
+<link href="Font-Awesome-5.15.4/css/all.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<!-- start Quiz button -->
+<div class="start_btn" style="border-radius: 25px;"><button></button></div>
+
+<!-- Info Box -->
+<div class="info_box">
+    <div class="info-title"><span>Some Rules of this Quiz</span></div>
+    <div class="info-list">
+        <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+        <div class="info">2. Once you select your answer, it can't be undone.</div>
+        <div class="info">3. You can't select any option once time goes off.</div>
+        <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+        <div class="info">5. You'll get points on the basis of your correct answers.</div>
+    </div>
+    <div class="buttons">
+        <button class="quit">Exit</button>
+        <button class="restart">Continue</button>
+    </div>
+</div>
+
+<!-- Quiz Box -->
+<div class="quiz_box">
+    <header>
+        <div class="title" style="font-size:25px;">Quiz</div>
+        <div class="timer">
+            <div class="time_left_txt">Time Left</div>
+            <div class="timer_sec">15</div>
+        </div>
+        <div class="time_line"></div>
+    </header>
+    <section>
+        <div class="que_text">
+            <!-- Questions will be inserted here dynamically -->
+        </div>
+        <div class="option_list">
+            <!-- Options will be inserted here dynamically -->
+        </div>
+    </section>
+    <footer>
+        <div class="total_que">
+            <!-- Total question count will be inserted here dynamically -->
+        </div>
+        <button class="next_btn">Next</button>
+    </footer>
+</div>
+
+<!-- Result Box -->
+<div class="result_box">
+    <div class="icon">
+        <i class="fas fa-crown"></i>
+    </div>
+    <div class="complete_text">You've completed the Quiz!</div>
+    <div class="score_text">
+        <!-- Score will be inserted here dynamically -->
+    </div>
+    <div class="buttons">
+        <button class="restart">Replay</button>
+        <button class="quit">Quit</button>
+    </div>
+</div>
+
+<script>
+    // Pass the MCQs data to JavaScript
+    const questions = {{ mcqs|tojson }};
+</script>
+<script src="static/script.js"></script>
+{% endblock %}

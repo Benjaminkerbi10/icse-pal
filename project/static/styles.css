@@ -1,0 +1,235 @@
+nav
+{
+
+    width:98vw;
+    top:10px;
+    z-index: 9999;
+    left:7px;
+    border-radius:20px;
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+      background-color: white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 10px;
+  }
+}
+
+.nav-link
+{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size:20px;
+    background-color:#333333;
+    border-radius:30px;
+    text-align:center;
+}
+
+.navbar-custom {
+    background-color: #333333 !important;
+}
+
+.navbar-toggler-icon
+{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+}
+
+.navbar-toggler
+{
+    border:2px solid white;
+}
+h1
+{
+    color:white;
+    font-family:'Jost',sans-serif;
+    font-size:100px;
+    font-weight:800;
+    align-text:center;
+}
+
+p
+{
+    color:white;
+    font-family: 'Varela Round', sans-serif;
+    align-text:center;
+}
+
+h5
+{
+    color:white !important;
+    font-family:'Jost',sans-serif;
+    align-text:center;
+    font-size: 28px;
+}
+
+.card-body
+{
+    background-color:#333333;
+    border-radius:12px;
+    margin-top: 5px;
+    border:6px solid white;
+
+}
+
+.card
+{
+    border:6px solid white;
+}
+
+.card-container {
+    width: 100%;
+  }
+
+  .card {
+    margin: auto;
+  }
+  @media (min-width: 768px) {
+    .card-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  #nav {
+    z-index: 9999;
+}
+
+#todolistcontainer {
+  background-color: #333333;
+  border-radius: 10px;
+}
+
+#inputtodo {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: 6vh;
+  width: 40%;
+  border-radius: 5px;
+  font-size: 2.5vh;
+  font-family: 'Varela Round', sans-serif;
+}
+
+#push {
+  border-radius: 0px solid black;
+  height: 5vh;
+  font-size: 2.5vh;
+  font-family: 'Varela Round', sans-serif;
+  color: white;
+}
+
+
+#tasks {
+  color: black;
+  font-size: 2.5vh;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px;
+  border: 3px solid black;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: white;
+  padding-left: 10px;
+}
+
+#taskname {
+  flex-grow: 1;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: calc(100% - 90px); /* Ensure space for the buttons */
+  text-align: left;
+}
+
+.delete, .complete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 1px; /* Add this line to reduce space between buttons */
+}
+
+.delete img, .complete img {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.completed #taskname {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+@media (max-width: 992px) {
+  #inputtodo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 5vh;
+    width: 77%;
+    border-radius: 5px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2.4vh;
+  }
+
+  #push {
+    border-radius: 5px;
+    height: 4.5vh;
+    font-size: 2vh;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    padding-left:2px;;
+    padding-right:2px;
+  }
+
+  #tasks {
+    color: black;
+    font-size: 2.2vh;
+    font-family: 'Varela Round', sans-serif;
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    border: 3px solid black;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: white;
+    padding-left: 10px;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .carousel-inner {
+      height: auto !important; /* Adjust height for mobile view */
+  }
+  .carousel-item img {
+      height: auto !important;
+      width: 100% !important;
+      object-fit: contain !important; /* Ensure the image fits within the mobile screen */
+  }
+}
+.carousel-control-prev, .carousel-control-next {
+  align-items: center;
+  display: flex;
+}

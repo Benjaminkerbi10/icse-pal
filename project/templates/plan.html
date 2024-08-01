@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    : Plan
+{% endblock %}
+
+{% block main %}
+
+<h1>Plan Your Days</h1>
+
+<div class="container" id="todolistcontainer">
+    <div id="newtask">
+        <input type="text" placeholder="Add Tasks" id="inputtodo">
+        <button type="button" class="btn btn-primary" id="push">Add</button>
+    </div>
+    <div id="tasks" style="margin:7px; padding-bottom:10px;padding-top:10px;"></div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    loadTodos();
+    loadMarks();
+});
+
+function loadTodos() {
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+    todoList.forEach(todo => {
+        addTodoToDOM(todo.text, todo.completed);
+    });
+}
+
+document.querySelector('#push').onclick = function() {
+    const input = document.querySelector('#inputtodo');
+    const todoText = input.value.trim();
+
+    if (todoText.length == 0) {
+        alert("You Forgot To Enter A Task Name ☠️");
+    } else {
+        const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+        const newTodo = { text: todoText, completed: false };
+        todoList.push(newTodo);
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+
+        addTodoToDOM(todoText, false);
+        input.value = '';
+    }
+};
+
+function addTodoToDOM(todoText, completed) {
+    const taskContainer = document.createElement('div');
+    taskContainer.classList.add('task');
+    if (completed) {
+        taskContainer.classList.add('completed');
+    }
+
+    const taskName = document.createElement('span');
+    taskName.id = 'taskname';
+    taskName.textContent = todoText;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete');
+    deleteButton.innerHTML = '<img src="static/trash.jpg" id="trash-icon">';
+
+    deleteButton.onclick = function() {
+        removeTodoFromStorage(todoText);
+        taskContainer.remove();
+    };
+
+    const completeButton = document.createElement('button');
+    completeButton.classList.add('complete');
+    completeButton.innerHTML = '<img src="static/check.jpg" id="check-icon">';
+
+    completeButton.onclick = function() {
+        toggleComplete(todoText);
+        taskContainer.classList.toggle('completed');
+    };
+
+    taskContainer.appendChild(taskName);
+    taskContainer.appendChild(completeButton);
+    taskContainer.appendChild(deleteButton);
+
+    document.querySelector('#tasks').appendChild(taskContainer);
+}
+
+function toggleComplete(todoText) {
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+    const updatedList = todoList.map(todo => {
+        if (todo.text === todoText) {
+            todo.completed = !todo.completed;
+        }
+        return todo;
+    });
+    localStorage.setItem('todoList', JSON.stringify(updatedList));
+}
+
+function removeTodoFromStorage(todoText) {
+    let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+    todoList = todoList.filter(todo => todo.text !== todoText);
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+}
+
+</script>
+
+{% endblock %}

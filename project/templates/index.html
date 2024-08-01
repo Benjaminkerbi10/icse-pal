@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<style>
+@media (max-width: 576px) {
+  .card-img-top {
+    max-height: 150px; /* Adjust this value as needed */
+    object-fit: cover;
+  }
+}
+</style>
+
+<h1></h1>
+<h1 >Ace ICSE Exams</h1>
+<h1></h1>
+
+<br>
+<br>
+<br>
+
+<div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center">
+    <div class="col">
+      <a href="/subjects" style="text-decoration: none;">
+      <div class="card h-100">
+        <img src="static/mcqs_logo.png" class="card-img-top img-fluid" alt="mcqs_logo" style="border-radius:12px;">
+        <div class="card-body">
+          <h5 class="card-title">MCQs</h5>
+          <p class="card-text">Practice your ICSE knowledge with chapter-wise MCQs for several subjects, or even practice a collection of MCQs of full subjects!</p>
+        </div>
+      </div>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/plan" style="text-decoration: none;">
+      <div class="card h-100">
+        <img src="static/plan_logo.jpg" class="card-img-top img-fluid" alt="plan_logo" style="border-radius:12px;">
+        <div class="card-body">
+          <h5 class="card-title">Plan</h5>
+          <p class="card-text">Plan your tasks for the day, caluclate your marks and percentages and set realistic goals to ace the exams!</p>
+        </div>
+      </div>
+    </a>
+    </div>
+    <div class="col">
+      <a href="/motivation" style="text-decoration: none;">
+      <div class="card h-100">
+        <img src="static/motivation_logo.jpg" class="card-img-top img-fluid" alt="motivation_logo" style="border-radius:12px;">
+        <div class="card-body">
+          <h5 class="card-title">Motivation</h5>
+          <p class="card-text">Feeling lazy or unmotivated to work! Follow these tested methods to get back on the hustle!</p>
+        </div>
+      </div>
+    </a>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    : MCQS
+{% endblock %}
+
+{% block main %}
+
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for subject in subjects %}
+  <form action="/chapters" method ="post">
+  <div class="col">
+    <div class="card" style="border:1px solid white;" >
+      <div class="card-body" style="border:3px solid white;">
+        <h5 class="card-title" >{{ subject["subject"] }}</h5>
+        <input type="hidden"  name="subject" value="{{ subject.subject }}">
+        <p class="card-text" >{{ subject["count(distinct chapter)"] }} Chapters</p>
+        <p class="card-text"><input class="btn btn-primary" type= "submit" value="See Chapters"></p>
+      </div>
+    </div>
+  </div>
+</form>
+  {% endfor %}
+</div>
+
+
+
+{% endblock %}
