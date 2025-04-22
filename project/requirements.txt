@@ -1,2 +1,4 @@
 Flask==2.0.1
+Flask-Session
 gunicorn==20.1.0
+cs50
